@@ -1,6 +1,5 @@
-#data link kaggle competitions download -c traveling-santa-problem 
-#Data Description:
-#The cities are specified in a CSV file with 3 columns: id, x, y.
+#data link https://www.kaggle.com/c/traveling-santa-problem/data
+
 
 # Load in our libraries
 import io
