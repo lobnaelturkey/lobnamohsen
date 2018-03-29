@@ -1,1 +1,26 @@
-# lobnamohsen
+Traveling Santa Problem Solver
+This is a heuristic written in Python for the Traveling Santa Problem. It is based on Concorde -- a state-of-the-art Traveling Salesman Problem (TSP) solver.
+
+Heuristic
+The Traveling Santa Problem naturally decomposes into two TSP with side constraints (an edge can be in at most one TSP). This heuristic uses Concorde's Lin-Kernighan heuristic as follows:
+
+Run Lin-Kernighan heuristic on first path.
+
+Edge restriction: can used at most n edges from the second path.
+
+Run Lin-Kernighan heuristic on second path.
+
+Edge restriction: can't use any edge from the first path.
+
+Result
+This heuristic (IRO on the leaderboard) found a solution with an objective value of 6,593,676, which is at 1% of the solution found by the winning team (6,526,972).
+
+Usage
+Computing k Nearest Neighbor
+Since each subproblem (TSP) uses a strict subset of the edges, we need to explicitly list the allowed edges to Concorde. And we can't list all edges because there are too many (~11 billions). So I decided to include edges from the k nearest neighbor graph (K-NNG). The script k_nearest_neighbor.py generates such graph in a naive way O(n^2), but it's fully parallelizable so it shouldn't take too long if you have a few cores.
+
+Parameters:
+
+number of processes
+k
+instance
