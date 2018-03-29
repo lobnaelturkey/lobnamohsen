@@ -1,3 +1,7 @@
+#data link kaggle competitions download -c traveling-santa-problem 
+#Data Description:
+#The cities are specified in a CSV file with 3 columns: id, x, y.
+
 # Load in our libraries
 import io
 import itertools
