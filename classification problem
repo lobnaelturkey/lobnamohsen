@@ -1,3 +1,4 @@
+# Load in our libraries
 import io
 import itertools
 import math
@@ -11,7 +12,7 @@ def Dist(nodes, round_method):
     num_nodes = len(nodes)
 
     def dist(index1, index2):
-        # Dummy node
+# Dummy node
         if index1 == num_nodes or index2 == num_nodes:
             return 0
 
@@ -43,7 +44,7 @@ def Linkern(linkern_path, working_dir, num_nodes, dist):
         args = [linkern_path, "-N", "10"]
         args.extend(["-o", result_filename])
 
-        # Data
+# Data
         with open(data_filename, 'w') as file:
             file.write(create_data_content(
                     num_nodes + 1, 
@@ -51,10 +52,10 @@ def Linkern(linkern_path, working_dir, num_nodes, dist):
                     list(itertools.chain(edges, null_edges))))
         args.extend(["-g", data_filename])
 
-        # Time
+# Time
         args.extend(["-t", str(time)])
 
-        # Cycle
+# Cycle
         with open(starting_cycle_filename, 'w') as file:
             file.write(create_starting_cycle_content(starting_path \
                                                          + [num_nodes]))
